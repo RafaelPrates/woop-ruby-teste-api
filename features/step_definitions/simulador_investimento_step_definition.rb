@@ -3,13 +3,13 @@ Dado("que eu tenha acesso a API") do
   end
   
   Quando("eu faço a chamada para a API") do
-    chamada_api()
+    $response = chamada_api()
   end
   
   Então("e valido o codigo de resposta") do
-    pending # Write code here that turns the phrase above into concrete actions
+    expect($response.code).to eq(200)
   end
   
   Então("valido o response pelo contrato") do
-    pending # Write code here that turns the phrase above into concrete actions
+    validar_contrato($response.body)
   end
