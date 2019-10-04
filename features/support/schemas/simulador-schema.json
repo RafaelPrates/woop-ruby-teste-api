@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [
+        "id",
+        "meses",
+        "valor"
+    ],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "title": "Identificador",
+            "minimum": 1,
+            "maximum": 999999
+        },
+        "meses": {
+            "type": "array",
+            "title": "Meses referentes a simulação",
+            "items": {
+                "type": "integer",   
+                "minimum": 1,
+                "maximum": 9999
+            }
+        },
+        "valor": {
+            "type": "array",
+            "title": "Valor referente ao calculo da simulação",
+            "items": {
+                "type": "number",
+                "examples": [
+                    "2.802",
+                    "3.174",
+                    "3.564",
+                    "3.971"
+                ],
+                "pattern": "^([0-9]*|([0-9]+.[0-9]*))$"
+            }
+        }
+    }
+}
